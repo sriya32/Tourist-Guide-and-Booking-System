@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Guide - Login/Signup</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login/Signup</h2>
+        <select id="type">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+        <input type="text" id="username" placeholder="Enter Username" required>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <button onclick="handleLogin()">Login</button>
+        <button onclick="handleSignup()">Signup</button>
+        <p id="errorMessage" class="error"></p>
+    </div>
+
+    <script>
+        async function handleSignup() {
+            const type = document.getElementById('type').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            console.log("Signup Data Sent:", { type, username, password });
+
+            if (!type || !username || !password) {
+                document.getElementById('errorMessage').innerText = "All fields are required!";
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type, username, password })
+                });
+
+                const result = await response.json();
+                console.log("Signup Response:", result);
+
+                if (response.ok) {
+                    alert(`Signup successful! User ID: ${result.id}`);
+                    window.location.href = type === 'admin' ? '/welcome-admin.html' : '/welcome-user.html';
+                } else {
+                    document.getElementById('errorMessage').innerText = `Signup failed: ${result.error}`;
+                }
+            } catch (err) {
+                document.getElementById('errorMessage').innerText = "Error connecting to the server.";
+            }
+        }
+
+        async function handleLogin() {
+            const type = document.getElementById('type').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            console.log("Login Data Sent:", { type, username, password });
+
+            if (!type || !username || !password) {
+                document.getElementById('errorMessage').innerText = "All fields are required!";
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include', // Include cookies for session
+                    body: JSON.stringify({ type, username, password })
+                });
+
+                const result = await response.json();
+                console.log("Login Response:", result);
+
+                if (response.ok) {
+                    alert(`Login successful! Redirecting...`);
+                    window.location.href = type === 'admin' ? '/welcome-admin.html' : '/welcome-user.html';
+                } else {
+                    document.getElementById('errorMessage').innerText = `Login failed: ${result.error}`;
+                }
+            } catch (err) {
+                document.getElementById('errorMessage').innerText = "Error connecting to the server.";
+            }
+        }
+
+        // Check if user is already logged in
+        async function checkSession() {
+            try {
+                const response = await fetch('/api/auth/current', {
+                    credentials: 'include' // Include cookies for session
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    window.location.href = result.type === 'admin' ? '/welcome-admin.html' : '/welcome-user.html';
+                }
+            } catch (err) {
+                console.log('No active session');
+            }
+        }
+
+        checkSession();
+    </script>
+</body>
+</html>

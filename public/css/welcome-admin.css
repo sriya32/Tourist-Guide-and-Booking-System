@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* background: url('../images/admin.jpg') no-repeat center center fixed; */
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/h.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(1px);
+    z-index: -1;
+}
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #2c3e50, #1a2526);
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h2 {
+    margin: 0 0 25px;
+    font-size: 26px;
+    color: #ecf0f1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sidebar ul li a {
+    color: #dfe6e9;
+    text-decoration: none;
+    padding: 12px;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background: linear-gradient(90deg, #3498db, #8e44ad);
+    transform: translateX(5px);
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 30px;
+    width: calc(100% - 270px);
+}
+
+.section {
+    background: rgba(52, 73, 94, 0.9);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: #ecf0f1;
+    font-weight: 600;
+}
+
+.package-nav button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.package-nav button:hover {
+    background: linear-gradient(135deg, #e84393, #3498db);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2d3436;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #e84393, #3498db);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Updated table styles for better structure */
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+}
+
+table {
+    width: 100%;
+    min-width: 1200px; /* Ensure table has enough width for all columns */
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px; /* Slightly smaller font for better fit */
+}
+
+table th,
+table td {
+    padding: 12px 15px; /* Increased padding for better spacing */
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+}
+
+table th {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Specific column widths to ensure even distribution */
+table th:nth-child(1), table td:nth-child(1) { /* ID */
+    width: 5%;
+}
+table th:nth-child(2), table td:nth-child(2) { /* Place */
+    width: 10%;
+}
+table th:nth-child(3), table td:nth-child(3) { /* Package Name */
+    width: 15%;
+}
+table th:nth-child(4), table td:nth-child(4) { /* Days */
+    width: 5%;
+}
+table th:nth-child(5), table td:nth-child(5) { /* Nights */
+    width: 5%;
+}
+table th:nth-child(6), table td:nth-child(6) { /* Price */
+    width: 10%;
+}
+table th:nth-child(7), table td:nth-child(7) { /* Hotel */
+    width: 5%;
+}
+table th:nth-child(8), table td:nth-child(8) { /* Flights */
+    width: 5%;
+}
+table th:nth-child(9), table td:nth-child(9) { /* Cabs */
+    width: 5%;
+}
+table th:nth-child(10), table td:nth-child(10) { /* Food */
+    width: 5%;
+}
+table th:nth-child(11), table td:nth-child(11) { /* Description */
+    width: 15%;
+}
+table th:nth-child(12), table td:nth-child(12) { /* Start Date */
+    width: 10%;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #2c3e50;
+}
+
+table tbody tr:hover {
+    background-color: rgba(52, 73, 94, 0.8);
+    transition: background-color 0.3s ease;
+}

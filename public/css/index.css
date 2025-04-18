@@ -1,0 +1,99 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* background: url('../images/index-bg.jpg') no-repeat center center fixed; */
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/g.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(1px); /* Adjust the blur radius as needed (e.g., 5px, 10px) */
+    z-index: -1; /* Ensure the blurred background stays behind the content */
+}
+
+.container {
+    /* Updated for transparency */
+    background: rgba(255, 255, 255, 0.2); /* Lower opacity for more transparency */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+    backdrop-filter: blur(10px); /* Increased blur for a stronger glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Added a subtle border */
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added for better readability */
+}
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    color: #2d3436; /* Ensure text color is defined */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Added for better readability */
+}
+
+select:focus, input:focus {
+    border-color: #e84393;
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added for better readability */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #e84393, #3498db);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#message {
+    margin-top: 15px;
+    color: #2d3436;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added for better readability */
+}

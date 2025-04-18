@@ -1,0 +1,72 @@
+<!-- src/public/welcome-user.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/css/welcome-user.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>User Dashboard</h2>
+        <ul>
+            <li><a href="#" onclick="showSection('bookings')" class="active">My Bookings</a></li>
+            <li><a href="#" onclick="showSection('packages')">Packages</a></li>
+            <li><a href="#" onclick="showSection('places')">Explore Places</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="section" id="bookings-section">
+            <h2>My Bookings</h2>
+            <table id="bookings-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Package</th>
+                        <th>Place</th>
+                        <th>Booking Date</th>
+                        <th>Start Date</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="section" id="packages-section" style="display: none;">
+            <h2>Packages</h2>
+            <table id="packages-table">
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Package Name</th>
+                        <th>Days</th>
+                        <th>Nights</th>
+                        <th>Price</th>
+                        <th>Hotel</th>
+                        <th>Flights</th>
+                        <th>Cabs</th>
+                        <th>Food</th>
+                        <th>Start Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="section" id="places-section" style="display: none;">
+            <h2>Explore Places</h2>
+            <table id="places-table">
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/welcome-user.js"></script>
+</body>
+</html>
